@@ -40,10 +40,10 @@ In order to identify, categorize, and present information, the following tools w
     - via LDA, web scraping, etc.
 2. Given a topic, find related articles
 3. Given an article, summarize article appropriately
-4. Aggregate summarized articles, and output result.
-6. Add fine-tuning aspects for clients
-7. Build out web application to support above processes
-8. Allow for more complicated inputs (entire documents instead of a single topic)
+4. Aggregate summarized articles, and output result
+5. Add fine-tuning aspects for clients
+6. Build out web application to support above processes
+7. Allow for more complicated inputs (entire documents instead of a single topic)
 
 ### Preliminary sketch of what you hope to find.
 What we hope to produce is a product that can do the following:
