@@ -11,7 +11,7 @@
 To create a tool for aggregating and presenting focused, directed, and relevant information to end users, people, customers, and clients, and the world.
 
 ### What is the need? Who wants or benefits?
-Scenario, picture this: You're a college student. You have a final tomorrow. You have not once attended class. You are not familiar with your professors name. You visit TAMU's Howdy portal and find the course name and syllabus. At this point, you need to learn all of the relevant information from the entire semester. Good thing there's *BigBook*. You quickly and efficiently upload said syllabus into *BigBook* via *BigBook's* friendly and intuitive UI/UX. BigBook performs analysis on said syllabus and outputs a BigBook of the length of your choosing containing all of the information needed to pass said course. Boom, you graduate.
+Scenario, picture this: You're a college student. You have a final tomorrow. You have not once attended class. You are not familiar with your professor's name. You visit TAMU's Howdy portal and find the course name and syllabus. At this point, you need to learn all of the relevant information from the entire semester. Good thing there's *BigBook*. You quickly and efficiently upload said syllabus into *BigBook* via *BigBook's* friendly and intuitive UI/UX. BigBook performs analysis on said syllabus and outputs a BigBook of the length of your choosing containing all of the information needed to pass said course. Boom, you graduate.
 
 **** BigBook is not responsible for any failed semesters.   
 We avidly and vigorously support the following motto as our 4.0 and Go Tutor once said:
@@ -40,7 +40,7 @@ In order to identify, categorize, and present information, the following tools w
     - via LDA, web scraping, etc.
 2. Given a topic, find related articles
 3. Given an article, summarize article appropriately
-4. Aggregate summarized articles, and output result.
+4. Aggregate summarized articles, and output result
 6. Add fine-tuning aspects for clients
 7. Build out web application to support above processes
 8. Allow for more complicated inputs (entire documents instead of a single topic)
