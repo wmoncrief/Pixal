@@ -1,4 +1,4 @@
-# Project: *BigBook*
+# Project: *Stocks & Searches*
 *by Team Goodnight Moon*
 
 #### Team Members
@@ -8,51 +8,29 @@
 - Wes Moncrief
 
 #### Project Goal
-To create a tool for aggregating and presenting focused, directed, and relevant information to end users, people, customers, and clients, and the world.
+To find a relationship between stocks and Google Trends. This will be done for each company in the Fortune 500. We will then examine whether certain companies/industries are positively or negatively affected by increased publicity.
 
 ### What is the need? Who wants or benefits?
-Scenario, picture this: You're a college student. You have a final tomorrow. You have not once attended class. You are not familiar with your professor's name. You visit TAMU's Howdy portal and find the course name and syllabus. At this point, you need to learn all of the relevant information from the entire semester. Good thing there's *BigBook*. You quickly and efficiently upload said syllabus into *BigBook* via *BigBook's* friendly and intuitive UI/UX. BigBook performs analysis on said syllabus and outputs a BigBook of the length of your choosing containing all of the information needed to pass said course. Boom, you graduate.
+Stocks & Searches will help us to understand the relationship between the public and the stock market. It will give insight into whether or not Americans are keeping knowledgeable about the companies they are investing in.
 
-**** BigBook is not responsible for any failed semesters.   
-We avidly and vigorously support the following motto as our 4.0 and Go Tutor once said:
-***You can always retake a class, but you can never relive a party.***
-
-In Layman's terms, the purpose of this project is to identify and aggregate related information requested by a client and present it in a helpful format.
+We hope to learn what industries are benefitted by publicity. This could give potential guidance to public relations officers at certain companies.
 
 ### What data (or datasets)?
-*BigBook* will take advantage of Wikipedia's vast quantity of knowledge, facts, and truths. All 14 gigabytes. As a stretch goal, it will also incorporate additional sources of knowledge, i.e. news, research, etc.
+Stocks & Searches will use data from Google Trends. The data can be downloaded in CSV form. It describes the relative number of searches over time as well as the regions where the term was searched. This data is accessible via Google's API.
+We can acquire stock data from Yahoo Finance.
 
 ### What is your "data science" toolkit? You should list specific tools / packages you will use.
-In order to identify, categorize, and present information, the following tools will be integrated into *BigBook*:  
-- LDA analysis
-    - This will allow *BigBook* to identify related topics
-- Web Scraping analysis of Wikipedia link structure
-    - This will allow *BigBook* to further identify related topics and access them
-- Keyword extraction algorithms to identify important topics
-- Graph-based ranking models to identify key sentences and information and Extraction-based summarization
-    - This will allow for the summarization and aggregation of information that will be included in the requested *BigBook*
-- Actual tools we know we might use:
-    - Scrapy
-    - LDA implementation
+- Google API
+  - We will use this API to get our search data
+- Analysis
+  - ???
 
 ### Incremental Steps to Completion
-1. Given a word, find related topics
-    - via LDA, web scraping, etc.
-2. Given a topic, find related articles
-3. Given an article, summarize article appropriately
-4. Aggregate summarized articles, and output result
-5. Add fine-tuning aspects for clients
-6. Build out web application to support above processes
-7. Allow for more complicated inputs (entire documents instead of a single topic)
+1. Acquire all relevant data
+2.
 
 
 ### Preliminary sketch of what you hope to find.
-What we hope to produce is a product that can do the following:
-- Input a topic or series of topics
-- Output a useful and relevant summarization of all related information
-    - Allow user to fine-tune content of *BigBook*
-        - Length of *BigBook*
-        - Type of information included
-            - News, history, usage, etc.
-        - Obscurity levels/depth of information
-        - Language of resulting *BigBook*
+We are hoping to find a correlation between stock prices and google searches. Ideally, we will find that searches for a company's name will precede a change in their stock prices.
+
+We hope to find which industries are benefitted by publicity and which are hurt by it.
