@@ -1,4 +1,4 @@
-# Project: *Stocks & Searches*
+# Project: *Video Color Analysis*
 *by Team Goodnight Moon*
 
 #### Team Members
@@ -8,29 +8,28 @@
 - Wes Moncrief
 
 #### Project Goal
-To find a relationship between stocks and Google Trends. This will be done for each company in the Fortune 500. We will then examine whether certain companies/industries are positively or negatively affected by increased publicity.
+We will determine the average color of each frame in a given YouTube video. We will use the average colors to compare many different YouTube videos. We hope to find relationships between channels, genres, and popularity.
 
 ### What is the need? Who wants or benefits?
-Stocks & Searches will help us to understand the relationship between the public and the stock market. It will give insight into whether or not Americans are keeping knowledgeable about the companies they are investing in.
-
-We hope to learn what industries are benefitted by publicity. This could give potential guidance to public relations officers at certain companies.
+This will give insight into what colors influence the popularity of a video. It will also help us to understand how different colors are used in different genres of videos.
 
 ### What data (or datasets)?
-Stocks & Searches will use data from Google Trends. The data can be downloaded in CSV form. It describes the relative number of searches over time as well as the regions where the term was searched. This data is accessible via Google's API.
-We can acquire stock data from Yahoo Finance.
+We will use videos from YouTube. We will write a quick Python script to get the average color from each frame.
 
 ### What is your "data science" toolkit? You should list specific tools / packages you will use.
-- Google API
-  - We will use this API to get our search data
-- Analysis
-  - ???
+- OpenCV
+  - This is 'Open Computer Vision', which is implemented in Python as cv2. It will help us get data from video frames.
+- Classifiers
+  - We will try to classify different videos based on their frame color data. We will use a test & train set.
+- Multiple Regression
+  - We will use this to see if we can find correlations between videos that we expect to be related.
 
 ### Incremental Steps to Completion
-1. Acquire all relevant data
-2.
+1. Choose videos from YouTube to analyze
+2. Map videos to their frame color data representation
+3. Use regression to search for patterns in data
+4. Use classifiers to attempt predictions based on author, genre, popularity, etc.
 
 
 ### Preliminary sketch of what you hope to find.
-We are hoping to find a correlation between stock prices and google searches. Ideally, we will find that searches for a company's name will precede a change in their stock prices.
-
-We hope to find which industries are benefitted by publicity and which are hurt by it.
+We are hoping to find correlation between popularity and colors used. We expect to find commonality between videos by the same author - they often have the same scenery in the videos.
