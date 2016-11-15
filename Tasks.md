@@ -18,3 +18,8 @@
 #### Clayton - Week of 11/14
 - Role: Web Dev
 - Deliverables: Have a Django instance up and running by EOW, ready to deploy our code at our next group meeting.
+
+
+  	frame1	frame2 frame3 rock     blues  jazz    country popularity (by region?)
+vid1	<.2,.3,.5>	       	      	       1      	      	      
+vid2			      1	       			      1000			
