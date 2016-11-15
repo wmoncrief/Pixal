@@ -1,4 +1,4 @@
-# Project: *Video Color Analysis*
+# Project: *Music Video Color Analysis*
 *by Team Goodnight Moon*
 
 #### Team Members
