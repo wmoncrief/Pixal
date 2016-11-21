@@ -20,6 +20,16 @@
 - Deliverables: Have a Django instance up and running by EOW, ready to deploy our code at our next group meeting.
 
 
-  	frame1	frame2 frame3 rock     blues  jazz    country popularity (by region?)
-vid1	<.2,.3,.5>	       	      	       1      	      	      
-vid2			      1	       			      1000			
+### Week 2
+
+#### Dalton
+- download videos, get metadata, start trying to classify
+
+#### Clayton
+- build website, integrate Chris and Wes' code from last week, get AWS or similar server running
+
+#### Chris
+- finish scraping, start trying to classify
+
+#### Wes
+- download videos, get metadata, start trying to classify
