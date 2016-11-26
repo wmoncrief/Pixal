@@ -1,22 +1,22 @@
-import sys
-sys.path.append('C:\Users\Chris\Desktop\Classes\CSCE489\BigBook\mps-youtube-pafy-388db45') #fixes a local temp package issue
-
 import pafy
 import pandas as pd
-import csv
 
 def download(url):
 	video = pafy.new(url)
-	video.download(quiet=False)
+	best = video.getbest()
+	best.resolution, best.extension
+	best.download(quiet=False)
 
-def load_csv(filepath):
-	df = pd.read_csv(filepath)
-    #unfinished
+#def load_csv(filepath):
+	#df = pd.read_csv(filepath)
+	#print df
 
-url = "https://www.youtube.com/watch?v=UtZBA1bVbcs" #single case example
-download(url)
+fp = 'C:\Users\Chris\Desktop\Classes\CSCE489\BigBook\BigBook\VidScrape\country.csv'
+df = pd.read_csv(fp)
+print df
 
-#video = pafy.new(url)
-#best = video.getbest()
-#best.resolution, best.extension
-#best.download(quiet=False)
+count = 0 #was looking for the int index but got lazy
+for i in df['URL']:
+	url = 'https://www.youtube.com' + df['URL'][count] 
+	download(url)
+	count = count + 1
