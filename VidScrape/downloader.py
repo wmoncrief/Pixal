@@ -18,13 +18,10 @@ def download_vid(url,dir):
         print "failed to download a video: " + str(err)
 
 
-
 def download_csv(df,dir):
-    count = 0  # was looking for the int index but got lazy
-    for i in df['URL']:
-        url = 'https://www.youtube.com' + df['URL'][count]
+    for row in df['URL']:
+        url = 'https://www.youtube.com' + row
         download_vid(url,dir)
-        count = count + 1
 
 
 def download_all():
