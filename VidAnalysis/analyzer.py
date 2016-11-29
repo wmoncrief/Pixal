@@ -35,7 +35,11 @@ def get_avg_colors(vid_file_name):
         avg_list.append(subsection_avg_color)
         i += split_len
 
-    return avg_list
+    # quick way to get flattened list
+    l = []
+    for x in avg_list:
+        l.extend(list(x))
+    return l
 
 
 def get_avg_color_tuple(colors):
