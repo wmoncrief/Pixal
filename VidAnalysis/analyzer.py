@@ -45,4 +45,4 @@ def get_avg_color_tuple(colors):
     return r,g,b
 
 
-print get_avg_colors('blankSpace.mp4')
+# print get_avg_colors('blankSpace.mp4')
