@@ -152,5 +152,5 @@ def get_mode_colors(vid_file_name):
     return l
 
 
-x = get_mode_colors('banks.mp4')
+x = get_mode_colors('bare.mp4')
 print x
