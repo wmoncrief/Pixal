@@ -55,20 +55,37 @@ def is_grey(color_list):
         return True
     return False
 
+
 def get_nongrey_mode(colors):
     if not colors:
-        print 'crap, no nongrey mode'
         return None
-    mode_str = scipy.stats.mode(colors)
-    mode = unhash_color_list(mode_str.mode[0])
-    print mode
+    mode_str = scipy.stats.mode(colors).mode[0]
+    mode = unhash_color_list(mode_str)
     if is_grey(mode):
-        return get_nongrey_mode([x for x in colors if x != mode_str.mode[0]])
+        return get_nongrey_mode([x for x in colors if x != mode_str])
     else:
         return mode
 
 
+def gen_b_and_w_modes():
+    # this function is for films that are black and white.
+    # we have discarded all of their non-color data, so we will use
+    # this as an average for them.
+    b_and_w = []
+    for x in range(30):
+        if x % 3 == 0:
+            b_and_w.append(8 * x)
+        if x % 3 == 1:
+            b_and_w.append(8 * (x - 1))
+        if x % 3 == 2:
+            b_and_w.append(8 * (x - 2))
+    return [b_and_w[i:i + 3] for i in range(0, len(b_and_w), 3)]
+
+
 def get_most_common_modes(frame_modes):
+    if not frame_modes:  # shows that it was black and white video
+        return gen_b_and_w_modes()
+
     most_common_modes = []
     hashed_frame_modes = [hash_color_list(x) for x in frame_modes]
 
@@ -82,6 +99,8 @@ def get_most_common_modes(frame_modes):
                     hashed_frame_modes.pop(j)
     return [unhash_color_list(x) for x in most_common_modes]
 
+
+# hashes are helpful for taking the mode of RGB values (since scipy mode only works on single element)
 def hash_color_list(colors):
     hash = ""
     for col in colors:
@@ -89,19 +108,17 @@ def hash_color_list(colors):
         hash += str(rounded).zfill(3)
     return hash
 
+
 def unhash_color_list(color_hash):
     l = []
-    for i in range(0,len(color_hash),3):
-        c = color_hash[i:i+3]
+    for i in range(0, len(color_hash), 3):
+        c = color_hash[i:i + 3]
         l.append(int(c))
     return l
 
 
-FRAME_INTERVAL = 600  # only analyze every nth frame
+FRAME_INTERVAL = 100  # only analyze every nth frame
 PIXEL_INTERVAL = 20  # only analyze every nth pixel in each frame
-
-# returns a list of the average color in each of ten sections of the video
-
 
 
 def get_mode_colors(vid_file_name):
@@ -118,28 +135,22 @@ def get_mode_colors(vid_file_name):
                     for y in range(0, len(frame[0]) - PIXEL_INTERVAL, PIXEL_INTERVAL):
                         frame_colors.append(hash_color_list(frame[x][y]))
 
-
+    # get non-grey mode from each frame that we have looked at
     frame_modes = []
     for f_col in frame_colors:
         mode = get_nongrey_mode(f_col)
         if mode is not None:
             frame_modes.append(mode)
-
-    del frame_colors  # to save some space for upcoming computations
+    del frame_colors
 
     most_common_modes = get_most_common_modes(frame_modes)
-    print 'hi'
 
-    # now to split the data into 10 groups
-    # total_frames = float(len(frame_colors))
-    # split_len = int(ceil(total_frames / 10))
-
-
-    # # quick way to get flattened list
-    # l = []
-    # for x in avg_list:
-    #     l.extend(list(x))
-    return frame_modes
+    # quick way to get flattened list
+    l = []
+    for i in range(10):
+        l.extend(list(most_common_modes[i]))
+    return l
 
 
-print get_mode_colors('test-vid.3gp')
+x = get_mode_colors('banks.mp4')
+print x
