@@ -3,6 +3,7 @@ import skvideo.datasets
 from os import path
 import numpy as np
 from math import ceil
+import scipy.stats
 
 
 # you need to install ffmpeg to run this on mac.
@@ -19,8 +20,8 @@ def get_avg_colors(vid_file_name):
     for frame in video:
         i += 1
         if frame is not None:
-            avg_row_color = np.mean(frame,axis=1)
-            avg_column_color = np.mean(avg_row_color,axis=0)
+            avg_row_color = np.mean(frame, axis=1)
+            avg_column_color = np.mean(avg_row_color, axis=0)
             frame_colors.append(tuple(avg_column_color))
 
     # now to split the data into 10 groups
@@ -30,7 +31,7 @@ def get_avg_colors(vid_file_name):
     avg_list = []
     i = 0
     while i < total_frames:
-        subsection = frame_colors[i:i+split_len]
+        subsection = frame_colors[i:i + split_len]
         subsection_avg_color = get_avg_color_tuple(subsection)
         avg_list.append(subsection_avg_color)
         i += split_len
@@ -46,7 +47,99 @@ def get_avg_color_tuple(colors):
     r = sum(colors[0]) / float(len(colors[0]))
     g = sum(colors[1]) / float(len(colors[1]))
     b = sum(colors[2]) / float(len(colors[2]))
-    return r,g,b
+    return r, g, b
 
 
-# print get_avg_colors('blankSpace.mp4')
+def is_grey(color_list):
+    if max(color_list) - min(color_list) <= 10:
+        return True
+    return False
+
+def get_nongrey_mode(colors):
+    if not colors:
+        print 'crap, no nongrey mode'
+        return None
+    mode_str = scipy.stats.mode(colors)
+    mode = unhash_color_list(mode_str.mode[0])
+    print mode
+    if is_grey(mode):
+        return get_nongrey_mode([x for x in colors if x != mode_str.mode[0]])
+    else:
+        return mode
+
+
+def get_most_common_modes(frame_modes):
+    most_common_modes = []
+    hashed_frame_modes = [hash_color_list(x) for x in frame_modes]
+
+    for i in range(10):
+        modes = scipy.stats.mode(hashed_frame_modes).mode
+        for m in modes:  # could be more than one mode (tied)
+            m = m.tolist()
+            most_common_modes.append(m)
+            for j in range(len(frame_modes)):
+                if j < len(hashed_frame_modes) and hashed_frame_modes[j] == m:
+                    hashed_frame_modes.pop(j)
+    return [unhash_color_list(x) for x in most_common_modes]
+
+def hash_color_list(colors):
+    hash = ""
+    for col in colors:
+        rounded = int(ceil(col / 10.0) * 10)
+        hash += str(rounded).zfill(3)
+    return hash
+
+def unhash_color_list(color_hash):
+    l = []
+    for i in range(0,len(color_hash),3):
+        c = color_hash[i:i+3]
+        l.append(int(c))
+    return l
+
+
+FRAME_INTERVAL = 600  # only analyze every nth frame
+PIXEL_INTERVAL = 20  # only analyze every nth pixel in each frame
+
+# returns a list of the average color in each of ten sections of the video
+
+
+
+def get_mode_colors(vid_file_name):
+    test_vid = path.abspath(vid_file_name)
+    video = skvideo.io.vreader(test_vid)
+
+    frame_colors = []
+    i = 0
+    for frame in video:
+        i += 1
+        if i % PIXEL_INTERVAL == 0:
+            if frame is not None:
+                for x in range(0, len(frame) - PIXEL_INTERVAL, PIXEL_INTERVAL):
+                    for y in range(0, len(frame[0]) - PIXEL_INTERVAL, PIXEL_INTERVAL):
+                        frame_colors.append(hash_color_list(frame[x][y]))
+
+
+    frame_modes = []
+    for f_col in frame_colors:
+        mode = get_nongrey_mode(f_col)
+        if mode is not None:
+            frame_modes.append(mode)
+
+    del frame_colors  # to save some space for upcoming computations
+
+    most_common_modes = get_most_common_modes(frame_modes)
+    print 'hi'
+
+    # now to split the data into 10 groups
+    # total_frames = float(len(frame_colors))
+    # split_len = int(ceil(total_frames / 10))
+
+
+    # # quick way to get flattened list
+    # l = []
+    # for x in avg_list:
+    #     l.extend(list(x))
+    return frame_modes
+
+
+print get_mode_colors('test-vid.3gp')

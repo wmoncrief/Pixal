@@ -1,5 +1,7 @@
 import os
 from subprocess import call
+import time
+
 
 genres = ['country', 'edm', 'pop', 'rap', 'rock']
 
@@ -20,4 +22,5 @@ for genre in genres:
         call(["ffmpeg", "-i", old_vid_path, "-s", "250x250", "-b:a", "200k", "-vcodec", "mpeg4", "-acodec", "copy",
               new_vid_path])
 
+        time.sleep(7)  # to prevent my computer from blowing up
 print 'hi'
