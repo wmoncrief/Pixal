@@ -83,8 +83,7 @@ def gen_b_and_w_modes():
 
 
 def get_most_common_modes(frame_modes):
-    if not frame_modes:  # shows that it was black and white video
-        return gen_b_and_w_modes()
+
 
     most_common_modes = []
     hashed_frame_modes = [hash_color_list(x) for x in frame_modes]
@@ -142,6 +141,9 @@ def get_mode_colors(vid_file_name):
         if mode is not None:
             frame_modes.append(mode)
     del frame_colors
+
+    if not frame_modes:  # shows that it was black and white video
+        return gen_b_and_w_modes()
 
     most_common_modes = get_most_common_modes(frame_modes)
 
