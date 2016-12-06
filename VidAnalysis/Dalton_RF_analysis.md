@@ -28,3 +28,27 @@
 - Calls half Rap vids Country, other half calls Pop
 - Pop is good
 
+### Genre Breakdown - Country
+- Poor by itself
+- Good in group
+- Strong in: Meta, color, full
+
+### Genre Breakdown - Rock
+- Great by itself
+- Mixes with EDM in group
+- Strong in: Color
+
+### Genre Breakdown - EDM
+- Great by itself
+- Mixed with Rock, Country in group
+- Strong in: None
+
+### Genre Breakdown - Rap
+- Okay by itself
+- Mixes with Country, Pop in group
+- Strong in: None
+
+### Genre Breakdown - Pop
+- Okay by itself
+- Good in group, mixes with Rap
+- Strong in: Meta, full
