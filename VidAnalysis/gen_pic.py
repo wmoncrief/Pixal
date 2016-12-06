@@ -1,5 +1,4 @@
 from PIL import Image, ImageDraw
-import numpy as np
 from analyzer import get_mode_colors
 
 def generate_image(vid_path,im_path):
@@ -14,8 +13,8 @@ def generate_image(vid_path,im_path):
         colors.append((color_list[i],color_list[i+1],color_list[i+2]))
 
     draw = ImageDraw.Draw(im)
-    i = 10
 
+    i = 10
     width = 10 + i * 5
     new_coord = [0,0,width,height]
     for color in colors:
