@@ -1,9 +1,9 @@
 # Imports
-import os, time, path, pafy, pandas
+import os, time, path, pafy, pandas, gen_pic, md_creator
 from PIL import Image, ImageDraw
 from analyzer import get_mode_colors
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
-import  gen_pic
+
 
 # create our little application :)
 app = Flask(__name__)
@@ -58,6 +58,7 @@ def load_home():
         print 'GENERATING IMAGE'
         print 'GENERATING IMAGE'
         print 'GENERATING IMAGE'
+        md_creator.get_meta_for_url(request.form['url'])
         video_path = os.path.join('videos', FILENAME).encode('ascii')
         gen_pic.generate_image(video_path, 'static/image.png')
         # gen_pic.generate_image('videos/video.3gp', 'static/image.png')
