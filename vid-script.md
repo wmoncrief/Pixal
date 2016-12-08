@@ -9,15 +9,15 @@ We looked at the most commonly appearing colors in music videos and tried to pre
 
 **Data Explanation**
 
-*How did we get the data?
+* How did we get the data?
 
 **Analysis Explanation**
 
-*Ordinal Genres
-*Test and Train Sets
-*Generating Random Forests
-*Random Forest Only Color
-*Singling Out Pop and Rap
+* Ordinal Genres
+* Test and Train Sets
+* Generating Random Forests
+* Random Forest Only Color
+* Singling Out Pop and Rap
 
 **In-Depth Conclusions/Results**
 
