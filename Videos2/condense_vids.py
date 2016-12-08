@@ -3,7 +3,7 @@ from subprocess import call
 import time
 
 
-genres = ['country', 'edm', 'pop', 'rap', 'rock']
+genres = ['edm', 'pop', 'rap', 'rock']
 
 #  run this in the same directory that holds all your video directories, so it should be
 #  a sibling of country_vids, edm_vids, etc.
@@ -23,4 +23,5 @@ for genre in genres:
               new_vid_path])
 
         time.sleep(7)  # to prevent my computer from blowing up
+    time.sleep(3600)
 print 'hi'

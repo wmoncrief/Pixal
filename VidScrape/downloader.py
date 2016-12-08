@@ -34,4 +34,14 @@ def download_all():
         df = pd.read_csv(genre + '.csv')
         download_csv(df,dir)
 
-download_all()
+def download_all2():
+    genres = ['country', 'edm', 'pop', 'rap', 'rock']
+    for genre in genres:
+        dir = '../Videos2/' + genre + '_vids'
+        if not os.path.exists(dir):
+            os.makedirs(dir)
+
+        df = pd.read_csv(genre + '2.csv')
+        download_csv(df,dir)
+
+download_all2()
