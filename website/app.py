@@ -3,6 +3,8 @@ import os, time, path, pafy, pandas, gen_pic, md_creator
 from PIL import Image, ImageDraw
 from analyzer import get_mode_colors
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
+from sklearn.externals import joblib
+import gen_analysis_csv
 
 
 # create our little application :)
@@ -43,6 +45,9 @@ def download_vid(url,dir):
         print "failed to download a video: " + str(err)
 
 
+def gen_full_csv():
+    pass
+
 @app.route('/', methods=['GET','POST'])
 def load_home():
     # gen_pic.generate_image('videos/video.3gp', 'static/image.png')
@@ -61,6 +66,15 @@ def load_home():
         md_creator.get_meta_for_url(request.form['url'])
         video_path = os.path.join('videos', FILENAME).encode('ascii')
         gen_pic.generate_image(video_path, 'static/image.png')
+        gen_analysis_csv.do_gen(FILENAME)
+        df = pandas.read_csv('metadata/all.csv')
+
+        clf = joblib.load('clf file name')
+        clf = joblib.load('clf file name')
+        clf = joblib.load('clf file name')
+        clf = joblib.load('clf file name')
+        clf = joblib.load('clf file name')
+
         # gen_pic.generate_image('videos/video.3gp', 'static/image.png')
         return render_template('index.html', is_post=True, genre=genre, show_pic=True)
     else:

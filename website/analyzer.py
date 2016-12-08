@@ -112,8 +112,8 @@ def unhash_color_list(color_hash):
     return l
 
 
-FRAME_INTERVAL = 100  # only analyze every nth frame
-PIXEL_INTERVAL = 20  # only analyze every nth pixel in each frame
+FRAME_INTERVAL = 200  # only analyze every nth frame
+PIXEL_INTERVAL = 50  # only analyze every nth pixel in each frame
 
 
 def get_mode_colors(vid_file_name):
