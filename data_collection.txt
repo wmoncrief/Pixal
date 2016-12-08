@@ -1,0 +1,11 @@
+We employed several techniques to gather the data we needed.
+
+Date Acquisition
+Firstly, we chose the five most common genres and chose to focus only on them. We found a YouTube playlist for each of them. We used a chrome extension called 'scraper' to download the links to the top 200 videos in each playlist.
+Then, we used Pafy, a python library, to download each of the videos. In addition, Pafy also gave us the metadata (view count, rating, etc.) that we needed.
+
+Compressing Videos
+In order to speed up our frame-by-frame analysis of the videos, we used 'ffmpeg', a video conversion tool, to lower the quality of videos.
+
+Analyzing Frame Colors
+With skvideo, we iterated through the frames of each video. Originally, we took the average color of all the pixels in the frames. However, we quickly found that almost every frame's color averaged out to gray. Because of this, we decided to look at the most commonly appearing color (mode) of each frame. After finding each frame's mode and putting those values into a list, we took the 10 most common values on the list. These became the RGB values that we used in our analysis.
