@@ -55,25 +55,30 @@ def load_home():
     if request.method == 'POST':
         genre = 'Determined Genre'
         print 'Started Download!'
-        FILENAME = download_vid(request.form['url'], 'videos')
+        FILENAME = download_vid(request.form['url'], 'videos').encode('ascii')
         print 'Ended Download!'
-        print 'GENERATING IMAGE'
-        print 'GENERATING IMAGE'
-        print 'GENERATING IMAGE'
-        print 'GENERATING IMAGE'
-        print 'GENERATING IMAGE'
-        print 'GENERATING IMAGE'
+        print '****GENERATING IMAGE'
+        print '****GENERATING IMAGE'
+        print '****GENERATING IMAGE'
+        print '****GENERATING IMAGE'
         md_creator.get_meta_for_url(request.form['url'])
         video_path = os.path.join('videos', FILENAME).encode('ascii')
         gen_pic.generate_image(video_path, 'static/image.png')
-        gen_analysis_csv.do_gen(FILENAME)
-        df = pandas.read_csv('metadata/all.csv')
 
-        clf = joblib.load('clf file name')
-        clf = joblib.load('clf file name')
-        clf = joblib.load('clf file name')
-        clf = joblib.load('clf file name')
-        clf = joblib.load('clf file name')
+        print '*****************Generating Full CSV'
+        print '*****************Generating Full CSV'
+        print '*****************Generating Full CSV'
+        print '*****************Generating Full CSV'
+        print '*****************Generating Full CSV'
+        gen_analysis_csv.do_gen(video_path)
+        df = pandas.read_csv('metadata/all.csv')
+    
+        clf_dir = 'classifiers'
+        country_clf = joblib.load(os.path.join(clf_dir, 'country_class.pkl'))
+        # edm_clf = joblib.load(os.path.join(clf_dir, 'edm_class.pkl'))
+        # pop_clf = joblib.load(os.path.join(clf_dir, 'pop_class.pkl'))
+        # rap_clf = joblib.load(os.path.join(clf_dir, 'rap_class.pkl'))
+        # rock_clf = joblib.load(os.path.join(clf_dir, 'rock_class.pkl'))
 
         # gen_pic.generate_image('videos/video.3gp', 'static/image.png')
         return render_template('index.html', is_post=True, genre=genre, show_pic=True)

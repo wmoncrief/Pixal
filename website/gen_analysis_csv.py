@@ -24,7 +24,7 @@ def do_gen(filename):
     
     new_csv.writerow(new_headers)
     
-    color = get_mode_colors(path.join('videos', filename))
+    color = get_mode_colors(filename)
     # color = [item for sublist in color for item in sublist]
     print color
     color = map(str, map(int, color))
