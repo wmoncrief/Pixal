@@ -45,6 +45,15 @@ and is wrapped around the whole page content, except for the footer in this exam
         </center>
     </div>
 
+    <div class="w3-container w3-padding-8">
+        <center>
+            {% if is_post %}
+                <h1><b>Determined Genre: {{ genre }}</b></h1>
+                <img src="static/image.png"/>
+            {% endif %}
+        </center>
+    </div>
+
     <div class="w3-container">
         <p> &nbsp; </p>
     </div>
