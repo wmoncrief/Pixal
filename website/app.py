@@ -52,6 +52,7 @@ def gen_full_csv():
 def load_home():
     # gen_pic.generate_image('videos/video.3gp', 'static/image.png')
     # return render_template('show_entries.html', entries=entries)
+    all_features = ['rating', 'likes', 'dislikes', 'length', 'viewcount', 'colors_1_red', 'colors_1_blue', 'colors_1_green', 'colors_2_red', 'colors_2_blue', 'colors_2_green', 'colors_3_red', 'colors_3_blue', 'colors_3_green', 'colors_4_red', 'colors_4_blue', 'colors_4_green', 'colors_5_red', 'colors_5_blue', 'colors_5_green', 'colors_6_red', 'colors_6_blue', 'colors_6_green', 'colors_7_red', 'colors_7_blue', 'colors_7_green', 'colors_8_red', 'colors_8_blue', 'colors_8_green', 'colors_9_red', 'colors_9_blue', 'colors_9_green', 'colors_10_red', 'colors_10_blue', 'colors_10_green']
     if request.method == 'POST':
         genre = 'Determined Genre'
         print 'Started Download!'
@@ -75,13 +76,21 @@ def load_home():
     
         clf_dir = 'classifiers'
         country_clf = joblib.load(os.path.join(clf_dir, 'country_class.pkl'))
-        # edm_clf = joblib.load(os.path.join(clf_dir, 'edm_class.pkl'))
-        # pop_clf = joblib.load(os.path.join(clf_dir, 'pop_class.pkl'))
-        # rap_clf = joblib.load(os.path.join(clf_dir, 'rap_class.pkl'))
-        # rock_clf = joblib.load(os.path.join(clf_dir, 'rock_class.pkl'))
+        edm_clf = joblib.load(os.path.join(clf_dir, 'edm_class.pkl'))
+        pop_clf = joblib.load(os.path.join(clf_dir, 'pop_class.pkl'))
+        rap_clf = joblib.load(os.path.join(clf_dir, 'rap_class.pkl'))
+        rock_clf = joblib.load(os.path.join(clf_dir, 'rock_class.pkl'))
+
+
+        print '***************HERERERERERERERE'
+        country =  country_clf.predict(df[all_features])[0]
+        edm =  edm_clf.predict(df[all_features])[0]
+        pop =  pop_clf.predict(df[all_features])[0]
+        rap = rap_clf.predict(df[all_features])[0]
+        rock = rock_clf.predict(df[all_features])[0]
 
         # gen_pic.generate_image('videos/video.3gp', 'static/image.png')
-        return render_template('index.html', is_post=True, genre=genre, show_pic=True)
+        return render_template('index.html', is_post=True, genre=genre, show_pic=True, rock=rock, edm=edm, pop=pop, rap=rap, country=country)
     else:
         return render_template('index.html', is_post=False)
 
