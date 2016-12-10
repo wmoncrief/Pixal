@@ -1,6 +1,6 @@
 ## Pixal Script
 
-**Intro Montage**
+**Intro Montage** [00:00]
 
 *tires screech*
 
@@ -12,9 +12,18 @@ We looked at the most commonly appearing colors in music videos and tried to pre
 
 **High-Level Results**
 
+**Overview and Motivation**
+
+**Related Work**
+
+**Initial Questions**
+
 **Data Explanation**
 
+**Future Improvements
+
 * How did we get the data?
+  * To collect our data we scraped the urls of 
 
 **Analysis Explanation**
 
