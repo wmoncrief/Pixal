@@ -48,13 +48,15 @@ and is wrapped around the whole page content, except for the footer in this exam
     <div class="w3-container w3-padding-8">
         <center>
             {% if is_post %}
-                <h1><b>Determined Genre: {{ genre }}</b></h1>
-                <img src="static/image.png"/>
-                <h1>Rock {{rock}}</h1>
-                <h1>Country {{country}}</h1>
-                <h1>EDM {{edm}}</h1>
-                <h1>Rap {{rap}}</h1>
-                <h1>Pop {{pop}}</h1>
+                <h1>Video Title: {{ title }} </h1>
+                <h1><b>Possible Genres: {{ genre }}</b></h1>
+                <img id='im', src="/image"/>
+                <script>
+                    document.getElementById('im').src = "/image?" + new Date().getTime();
+                </script>
+            <video style="display:none" autoplay>
+                <source src="static/{{ video_name }}">
+            </video>
             {% endif %}
         </center>
     </div>

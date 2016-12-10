@@ -38,3 +38,4 @@ def do_gen(filename):
     time.sleep(1)
     new_csv_file.close()
     meta_csv_file.close()
+    return color

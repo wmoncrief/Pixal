@@ -1,13 +1,12 @@
 from PIL import Image, ImageDraw
 from analyzer import get_mode_colors
 
-def generate_image(vid_path,im_path):
-    print 'Generate image:', vid_path, im_path
+def generate_image(color_list,im_path):
     height = 40
     width = 420
     im = Image.new('RGB', (width, height))
 
-    color_list = get_mode_colors(vid_path)
+    # color_list = get_mode_colors(vid_path)
 
     colors = []
     for i in range(0,len(color_list),3):
