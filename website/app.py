@@ -60,6 +60,7 @@ def load_home():
 
         # Get the file and filename
         FILENAME = download_vid(request.form['url'], 'static').encode('ascii')
+        url = request.form['url']
 
         # Generate the metadata for the video
         md_creator.get_meta_for_url(request.form['url'])
@@ -97,8 +98,12 @@ def load_home():
         genre = gen_classified_string([country, edm, pop, rap, rock])
 
 
-        print 'FILENAME:', df['filename'][0]
-        return render_template('index.html', is_post=True, genre=genre, image_name='image.png', video_name=FILENAME, title=df['filename'])
+        # Get video name
+        video_name = df['filename'][0]
+        index_of_extension = len(video_name) - 1 - video_name[::-1].index('.')
+        embed_url = 'https://youtube.com/embed/' + url.split('=')[-1] + '?autoplay=1'
+
+        return render_template('index.html', is_post=True, genre=genre, image_name='image.png', video_name=FILENAME, title=video_name[0:index_of_extension], embed_url=embed_url)
     else:
 
         # Other wise we are not 

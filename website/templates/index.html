@@ -40,6 +40,7 @@ and is wrapped around the whole page content, except for the footer in this exam
             <form action="/" method=post>
                 <input type=text name=url style="width:650px">
                     <input type=submit value=Submit>
+
             </form>
 
         </center>
@@ -48,15 +49,17 @@ and is wrapped around the whole page content, except for the footer in this exam
     <div class="w3-container w3-padding-8">
         <center>
             {% if is_post %}
-                <h1>Video Title: {{ title }} </h1>
+                <h1>Video: {{ title }} </h1>
                 <h1><b>Possible Genres: {{ genre }}</b></h1>
                 <img id='im', src="/image"/>
                 <script>
                     document.getElementById('im').src = "/image?" + new Date().getTime();
                 </script>
-            <video style="display:none" autoplay>
+                <hr/>
+            <!-- <video style="display:none" autoplay>
                 <source src="static/{{ video_name }}">
-            </video>
+                </video> -->
+                <iframe width="560" height="315" src=" {{ embed_url }}" frameborder="0" allowfullscreen></iframe>  
             {% endif %}
         </center>
     </div>
