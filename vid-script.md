@@ -1,6 +1,11 @@
 ## Pixal Script
 
-**Intro**
+**Intro Montage**
+
+*tires screech*
+
+This is Freddy. Freddy has spent his morning watching various music videos on his tube television, but can't seem to figure out just what 
+genre of video he's watching. You see how puzzled he is? Something needs to be done.
 
 Of course, music of different genres sounds different, but we were curious whether or not the music videos that accompanied them had any quantifiable visual differences.
 We looked at the most commonly appearing colors in music videos and tried to predict their genres based on the distribution of these colors throughout the videos as well as metadata features such as likes, dislikes, and views.
