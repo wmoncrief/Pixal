@@ -1,4 +1,4 @@
-# Pixal
+# Pixal - Music Video Genre Analysis
 ## Overview and Motivation
 
 Our team wanted to find out if it was possible to intelligently determine the genre of a video by its youtube metadata (likes, dislikes, view count, etc.) and its average frame colors throughout the video.
