@@ -1,4 +1,13 @@
 # Pixal - Music Video Genre Analysis
+
+## Project Home Page
+https://foymula.github.io/pixalwebsite/
+
+## Pixal Page
+http://ec2-52-90-111-50.compute-1.amazonaws.com/
+
+
+
 ## Overview and Motivation
 
 Our team wanted to find out if it was possible to intelligently determine the genre of a video by its youtube metadata (likes, dislikes, view count, etc.) and its average frame colors throughout the video.
